@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pathfinder: The Dijkstra Challenge</title>
+    <meta
+      name="description"
+      content="A beautiful and challenging pathfinding game where you compete against an optimal AI bot."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="game-container">
+    <header>
+        <div class="level-info">Level <span id="level-num">1</span></div>
+        <div class="how-to-play">
+            <h3>How to Play</h3>
+            <p>Find the shortest path from the <span>Source</span> to the <span>Goal</span>. Your distance must match the bot's optimal distance to win.</p>
+        </div>
+    </header>
+
+    <main id="game-area">
+        <svg id="game-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+            <!-- Content -->
+        </svg>
+        
+        <div id="overlay-ui">
+            <div id="status-message">START AT SOURCE</div>
+            <div class="controls">
+                <button id="reset-btn" class="secondary-btn">Reset Path</button>
+                <button id="run-btn" class="primary-btn" disabled>Run Comparison</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="stats-panel">
+        <div class="stat-item">
+            <label>Speed</label>
+            <input type="range" id="speed-slider" min="30" max="300" value="120" step="10">
+        </div>
+        <div class="stat-item">
+            <label>Your Distance</label>
+            <div id="user-dist">0</div>
+        </div>
+        <div class="stat-item">
+            <label>Current Path</label>
+            <div id="path-display">NONE</div>
+        </div>
+    </div>
+
+      <div class="main-reset-container">
+          <button id="full-reset-btn" class="secondary-btn">Reset Game (Level 1)</button>
+      </div>
+
+      <!-- Modals -->
+      <div id="result-modal" class="modal hidden">
+        <div class="modal-content">
+          <h2 id="result-title">Victory!</h2>
+          <p id="result-text">You found the optimal path.</p>
+          <button id="next-level-btn" class="primary-btn">Next Level</button>
+          <button id="retry-btn" class="secondary-btn">Retry Level</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="dijkstra.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
