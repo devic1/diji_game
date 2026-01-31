@@ -161,27 +161,9 @@ header {
   fill: var(--bg-color);
 }
 
-/* Markers */
-.marker rect {
-    fill: var(--bg-color);
-    stroke: var(--text-main);
-    stroke-width: 1.5;
-}
-
-.marker text {
-    fill: var(--text-main);
-    font-size: 12px;
-    font-weight: 800;
-    text-anchor: middle;
-    dominant-baseline: central;
-}
-
-.user-marker rect {
-    fill: var(--text-main);
-}
-
-.user-marker text {
-    fill: var(--bg-color);
+/* Markers handled in JS styling */
+.marker {
+    pointer-events: none;
 }
 
 /* UI Overlay */
@@ -274,6 +256,7 @@ header {
 /* Speed Slider Styling */
 #speed-slider {
   -webkit-appearance: none;
+  appearance: none;
   width: 150px;
   height: 4px;
   background: #eee;
@@ -282,6 +265,7 @@ header {
 
 #speed-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
+  appearance: none;
   width: 16px;
   height: 16px;
   background: #000;

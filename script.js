@@ -211,15 +211,21 @@ class Game {
     g.setAttribute("class", `marker ${className}`);
     g.style.opacity = "0";
     
-    // User is a solid circle with O
-    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    circle.setAttribute("r", 12);
-    
-    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    text.textContent = char;
-    
-    g.appendChild(circle);
-    g.appendChild(text);
+    if (char === 'O') {
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("r", 7);
+        circle.setAttribute("fill", "none");
+        circle.setAttribute("stroke", "black");
+        circle.setAttribute("stroke-width", 2);
+        g.appendChild(circle);
+    } else {
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", "M -6,-6 L 6,6 M 6,-6 L -6,6");
+        path.setAttribute("stroke", "black");
+        path.setAttribute("stroke-width", 2);
+        path.setAttribute("stroke-linecap", "round");
+        g.appendChild(path);
+    }
     return g;
   }
 
